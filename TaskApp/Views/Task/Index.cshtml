@@ -1,0 +1,71 @@
+﻿@using TaskApp.Models
+@model TaskApp.Models.Tasks
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Simple Task Application</h1>
+<div class="border border-dark">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <span>
+                Task Tracker
+            </span>
+                <span>
+                    <button class="btn btn-success">Add</button>
+                </span>
+                </div>
+        </div>
+
+
+        <div>
+            <form asp-controller="Task" asp-action="Index" method="post" role="form">
+                <div class="form-group">
+                    <label asp-for="TaskName">Task</label>
+                    <input type="text" class="form-control" asp-for="TaskName" id="TaskName" placeholder="Add Task">
+                </div>
+                <div class="form-group">
+                    <label asp-for="TaskDateTime">Task Date Time</label>
+                    <input type="datetime-local" class="form-control" asp-for="TaskDateTime" id="TaskDateTime" placeholder="Add Day & Time">
+                </div>
+
+                <div class="form-check">
+                    <label asp-for="SetReminder">SetReminder</label>
+                    <input asp-for="SetReminder" class="form-check-input" type="radio" id="SetReminder" value="true">
+                </div>
+                <button type="submit" class="btn btn-dark" style="width: 100%">Save Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+    </script>
+}
+
+@*@using (Html.BeginForm("Index", "Task"))
+    {
+        <p class="alert alert-info">All fields are <strong>required</strong>.</p>
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.TaskId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.TaskName)
+            @Html.TextBoxFor(m => m.TaskName, new { @class = "form-control", autofocus = "autofocus" })
+            @Html.ValidationMessageFor(m => m.TaskName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.TaskDateTime)
+            @Html.TextAreaFor(m => m.TaskDateTime, new { @class = "form-control", placeholder = "eg 1 Jan 2019" })
+            @Html.ValidationMessageFor(m => m.TaskDateTime)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.SetReminder)
+            @Html.TextBoxFor(m => m.SetReminder, new { @class = "form-control", placeholder = "eg 20:00" })
+            @Html.ValidationMessageFor(m => m.SetReminder)
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+    }*@
