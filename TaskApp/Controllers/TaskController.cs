@@ -28,5 +28,13 @@ namespace TaskApp.Controllers
          
             return View();
         }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            _taskRepository.Remove(id);
+
+            return Ok();
+        }
     }
 }
