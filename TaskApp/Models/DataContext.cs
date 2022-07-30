@@ -8,6 +8,15 @@ namespace TaskApp.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Tasks>().HasKey(am => new
+            {
+                am.TaskId
+            });
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<Tasks> Tasks { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace TaskApp.Data
 
         public void Add(Tasks task)
         {
-            _dataContext.Tasks.Add(task);
+            _dataContext.Add(task);
             _dataContext.SaveChanges();
         }
     }

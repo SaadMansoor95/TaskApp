@@ -24,9 +24,8 @@ namespace TaskApp.Controllers
         [HttpPost]
         public ActionResult Index(Tasks task)
         {
-            var x = task;
-
             _taskRepository.Add(task);
+         
             return View();
         }
     }
