@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TaskApp.Models;
 
 namespace TaskApp.Data
@@ -10,6 +11,11 @@ namespace TaskApp.Data
         public TaskRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
+        }
+
+        public List<Tasks> GetAllTask()
+        {
+             return _dataContext.Tasks.ToList();
         }
 
         public void Add(Tasks task)

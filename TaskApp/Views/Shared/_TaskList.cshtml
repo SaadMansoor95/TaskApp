@@ -1,0 +1,17 @@
+﻿@using System.Globalization
+@model List<TaskApp.Models.Tasks>
+
+@foreach (var task in Model)
+{
+    <div class="mt-3 mb-3" style="background:#f5f5f0">
+        <div class="@(task.SetReminder ? "green-left-border " : "")">
+            <div class="m-1">
+                <button type="button" class="btn-close" style="float: right;" aria-label="Close" data-id="@task.TaskId"></button>
+            </div>
+            <div class="m-3">
+                <h4>@task.TaskName</h4>
+                <h6>@task.TaskDateTime.ToString("MMMM") @task.TaskDateTime.Day at @task.TaskDateTime.ToString("hh:mm tt")</h6>
+            </div>
+        </div>
+    </div>
+}

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TaskApp.Data;
 using TaskApp.Models;
 
@@ -14,8 +13,6 @@ namespace TaskApp.Controllers
             _taskRepository = taskRepository;
         }
 
-
-        // GET: TaskController
         public ActionResult Index()
         {
             return View();
@@ -25,7 +22,7 @@ namespace TaskApp.Controllers
         public ActionResult Index(Tasks task)
         {
             _taskRepository.Add(task);
-         
+
             return View();
         }
 
@@ -35,6 +32,13 @@ namespace TaskApp.Controllers
             _taskRepository.Remove(id);
 
             return Ok();
+        }
+
+        public ActionResult TasksList()
+        {
+            var list = _taskRepository.GetAllTask();
+
+            return PartialView("_TaskList", list);
         }
     }
 }
